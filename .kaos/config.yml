@@ -1,0 +1,7 @@
+name: dj-kaos-webclipper
+version: 0.0.0
+description: Clip web pages html and store in Django
+
+repo_url: https://github.com/kaoslabsinc/dj-kaos-webclipper
+project_url: https://github.com/kaoslabsinc/dj-kaos-webclipper
+keywords: django, clipper, webclipper, web clipper, scarping, scrape, kaos
