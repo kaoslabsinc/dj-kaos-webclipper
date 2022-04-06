@@ -19,6 +19,7 @@ from django.urls import path, include
 from django.views.generic import RedirectView
 from rest_framework.routers import DefaultRouter
 
+from webclipper.rest.routes import router as webclipper_router
 
 admin.site.site_header = "webclipper Example Admin"
 admin.site.site_title = "webclipper Example Admin"
@@ -30,6 +31,7 @@ urlpatterns = [
 
 router = DefaultRouter()
 router.registry.extend([
+    *webclipper_router.registry,
 ])
 
 urlpatterns += [
