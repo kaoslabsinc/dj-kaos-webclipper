@@ -14,7 +14,7 @@ class AbstractWebClip(
     html_content = models.TextField(blank=True)
 
     def __str__(self):
-        return self.page_title
+        return self.page_title or self.page_url
 
 
 __all__ = [
