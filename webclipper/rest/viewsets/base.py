@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 
 from ..serializers import *
 from ...models import *
@@ -7,6 +8,7 @@ from ...models import *
 class BaseWebClipViewSet(
     viewsets.GenericViewSet
 ):
+    permission_classes = (IsAuthenticated,)
     queryset = WebClip.objects.select_related(
         'owner',
     ).all()
