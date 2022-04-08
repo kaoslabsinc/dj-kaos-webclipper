@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.views.generic import RedirectView
+from rest_framework.routers import DefaultRouter
+
+from webclipper.rest.routes import router as webclipper_router
 
 admin.site.site_header = "webclipper Example Admin"
 admin.site.site_title = "webclipper Example Admin"
@@ -24,6 +27,15 @@ admin.site.site_title = "webclipper Example Admin"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(pattern_name='admin:index')),
+]
+
+router = DefaultRouter()
+router.registry.extend([
+    *webclipper_router.registry,
+])
+
+urlpatterns += [
+    path('api/v1/', include(router.urls)),
 ]
 
 if settings.DEBUG:
