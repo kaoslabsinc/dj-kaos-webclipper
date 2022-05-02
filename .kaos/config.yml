@@ -1,5 +1,5 @@
 name: dj-kaos-webclipper
-version: 0.1.0-a3
+version: 0.1.0-rc1
 description: Clip web pages html and store in Django
 
 repo_url: https://github.com/kaoslabsinc/dj-kaos-webclipper
