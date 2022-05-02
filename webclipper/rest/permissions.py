@@ -12,6 +12,14 @@ class WebClipPermissions(IsAdminUser):
         return default_perm or request.user == obj.owner
 
 
+class PublicWebClipsPermission(WebClipPermissions):
+    def has_permission(self, request, view):
+        if view.action == 'create':
+            return True
+        return super(PublicWebClipsPermission, self).has_permission(request, view)
+
+
 __all__ = [
     'WebClipPermissions',
+    'PublicWebClipsPermission',
 ]
